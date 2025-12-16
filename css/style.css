@@ -1,0 +1,159 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FOND GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #e6e6e6);
+    color: #111;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+    height: 100vh;
+    background: linear-gradient(120deg, #ffffff, #d4af37);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 2s ease;
+}
+
+header h1 {
+    font-size: 5rem;
+    color: #d4af37;
+    text-shadow: 0 0 20px rgba(212,175,55,0.8);
+    animation: glow 2s infinite alternate;
+}
+
+header p {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 10%;
+    animation: slideUp 1.5s ease;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #00529F;
+    text-decoration: underline;
+}
+
+/* PRESENTATION */
+.presentation p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* PALMARES */
+.palmares ul {
+    list-style: none;
+}
+
+.palmares li {
+    background: white;
+    margin: 15px 0;
+    padding: 20px;
+    font-size: 1.2rem;
+    border-left: 8px solid #d4af37;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.palmares li:hover {
+    transform: translateX(15px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* GALACTIQUES */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: linear-gradient(135deg, #00529F, #003366);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* BOUTON */
+.cta {
+    text-align: center;
+}
+
+.cta a {
+    display: inline-block;
+    padding: 20px 50px;
+    background: #d4af37;
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.cta a:hover {
+    background: #00529F;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+/* ANIMATIONS */
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(212,175,55,0.5);
+    }
+    to {
+        text-shadow: 0 0 30px rgba(212,175,55,1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
