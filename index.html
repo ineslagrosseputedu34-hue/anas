@@ -1,55 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Real Madrid - Galactiques</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <title>Real Madrid - Galactiques</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
 
-<header>
+  <header>
     <h1>REAL MADRID</h1>
     <p>Le plus grand club de l’histoire du football</p>
-</header>
+    <button class="btn-scroll" onclick="scrollToSection('presentation')">Voir la suite</button>
+  </header>
 
-<section class="presentation">
+  <section id="presentation" class="presentation">
     <h2>⚽ Présentation</h2>
     <p>
-        Fondé en 1902, le Real Madrid est un club mythique.<br/>
-        Il incarne l’excellence, la victoire et la légende.<br/>
+      Fondé en 1902, le Real Madrid est un club mythique.<br/>
+      Il incarne l’excellence, la victoire et la légende.<br/>
     </p>
-</section>
+  </section>
 
-<section class="palmares">
+  <section class="palmares">
     <h2>🏆 Palmarès Légendaire</h2>
-    <ul>
-        <li>15 Ligues des Champions</li>
-        <li>36 Championnats d’Espagne</li>
-        <li>20 Coupes du Roi</li>
-        <li>5 Coupes du Monde des Clubs</li>
-    </ul>
-</section>
+    <div class="cards">
+      <div class="card" data-palmares="ligues">
+        15 Ligues des Champions
+      </div>
+      <div class="card" data-palmares="championnats">
+        36 Championnats d’Espagne
+      </div>
+      <div class="card" data-palmares="coupes">
+        20 Coupes du Roi
+      </div>
+      <div class="card" data-palmares="mondial">
+        5 Coupes du Monde des Clubs
+      </div>
+    </div>
+    <div id="palmares-info" class="info-box"></div>
+  </section>
 
-<section class="galactiques">
+  <section class="galactiques">
     <h2>🌟 Galactiques</h2>
     <div class="cards">
-        <div class="card">Cristiano Ronaldo</div>
-        <div class="card">Zinédine Zidane</div>
-        <div class="card">Karim Benzema</div>
-        <div class="card">Raúl</div>
+      <div class="card" data-player="ronaldo">Cristiano Ronaldo</div>
+      <div class="card" data-player="zidane">Zinédine Zidane</div>
+      <div class="card" data-player="benzema">Karim Benzema</div>
+      <div class="card" data-player="raul">Raúl</div>
     </div>
-</section>
+    <div id="player-info" class="info-box"></div>
+  </section>
 
-<section class="cta">
-    <a href="https://www.realmadrid.com" target="_blank">
-        🔥 Site Officiel
-    </a>
-</section>
+  <section class="cta">
+    <a href="https://www.realmadrid.com" target="_blank">🔥 Site Officiel</a>
+  </section>
 
-<footer>
-    <p>© Real Madrid CF - Historia y Hijo de puta - anas </p>
-</footer>
+  <footer>
+    <p>© Real Madrid CF - Historia y Anas</p>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    const playersData = {
+      ronaldo: {
+        name: "Cristiano Ronaldo",
+        desc: "Attaquant portugais, quintuple Ballon d'Or, connu pour sa puissance et sa technique exceptionnelle."
+      },
+      zidane: {
+        name: "Zinédine Zidane",
+        desc: "Milieu français légendaire, champion du monde 1998, reconnu pour sa vision du jeu et ses gestes techniques."
+      },
+      benzema: {
+        name: "Karim Benzema",
+        desc: "Avant-centre français, pilier de l’attaque du Real Madrid, réputé pour sa technique et son sens du but."
+      },
+      raul: {
+        name: "Raúl",
+        desc: "Icône du club, l’un des meilleurs buteurs historiques du Real Madrid, symbole de détermination et de talent."
+      }
+    };
+
+    const palmaresData = {
+      ligues: {
+        title: "15 Ligues des Champions",
+        desc: "Le record historique de victoires en Ligue des Champions, démontrant la domination européenne du club."
+      },
+      championnats: {
+        title: "36 Championnats d’Espagne",
+        desc: "Le plus grand nombre de titres en Liga, symbole de constance et de supériorité nationale."
+      },
+      coupes: {
+        title: "20 Coupes du Roi",
+        desc: "Succès multiples en Coupe nationale, avec des performances mémorables dans cette compétition."
+      },
+      mondial: {
+        title: "5 Coupes du Monde des Clubs",
+        desc: "Triomphes mondiaux qui renforcent la légende et la réputation internationale du club."
+      }
+    };
+
+    const playerCards = document.querySelectorAll('.card[data-player]');
+    const playerInfoBox = document.getElementById('player-info');
+
+    playerCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-player');
+        const data = playersData[key];
+        if (data) {
+          playerInfoBox.innerHTML = `<h3>${data.name}</h3><p>${data.desc}</p>`;
+          playerInfoBox.classList.add('active');
+          playerInfoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    const palmaresCards = document.querySelectorAll('.card[data-palmares]');
+    const palmaresInfoBox = document.getElementById('palmares-info');
+
+    palmaresCards.forEach(card => {
+      card.addEventListener('click', () => {
+        const key = card.getAttribute('data-palmares');
+        const data = palmaresData[key];
+        if (data) {
+          palmaresInfoBox.innerHTML = `<h3>${data.title}</h3><p>${data.desc}</p>`;
+          palmaresInfoBox.classList.add('active');
+          palmaresInfoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
