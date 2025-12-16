@@ -6,10 +6,6 @@
 }
 
 /* FOND GENERAL */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(135deg, #ffffff, #e6e6e6);
@@ -26,8 +22,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeInSlideDown 1.5s ease forwards;
-  padding: 0 20px;
+  animation: fadeIn 2s ease;
 }
 
 header h1 {
@@ -42,6 +37,7 @@ header p {
   margin-top: 20px;
 }
 
+/* BOUTON "Voir la suite" */
 header .btn-scroll {
   margin-top: 30px;
   padding: 15px 40px;
@@ -78,63 +74,45 @@ h2 {
   line-height: 1.8;
 }
 
-/* CARTES GENERALES */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  background: linear-gradient(135deg, #00529F, #003366);
-  color: white;
-  padding: 40px;
-  text-align: center;
-  font-size: 1.3rem;
-  border-radius: 15px;
-  transition: transform 0.4s, box-shadow 0.4s;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-}
-
-.card:hover {
-  transform: scale(1.1) rotate(2deg);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-/* PALMARES - cartes style */
+/* PALMARES */
 .palmares .cards {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
 }
 
 .palmares .card {
   background: white;
-  color: #333;
-  border-left: 8px solid #d4af37;
-  font-weight: 600;
-  padding: 30px 20px;
-  font-size: 1.2rem;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  transform: none;
-  border-radius: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .palmares .card:hover {
-  transform: translateX(15px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* BOX INFO */
+.palmares .card .card-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* INFO BOX */
 .info-box {
   margin-top: 40px;
-  padding: 20px;
+  padding: 25px;
   background: #f0f0f0;
-  border-radius: 10px;
+  border-radius: 12px;
   display: none;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .info-box.active {
@@ -142,20 +120,49 @@ h2 {
 }
 
 .info-box h3 {
-  color: #00529F;
   margin-bottom: 15px;
-  font-size: 1.8rem;
+  color: #00529F;
 }
 
-.info-box p {
-  font-size: 1.1rem;
-  line-height: 1.5;
+/* GALACTIQUES */
+.galactiques .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
 }
 
-/* CTA */
+.galactiques .card {
+  background: linear-gradient(135deg, #00529F, #003366);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 1.3rem;
+  border-radius: 15px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galactiques .card:hover {
+  transform: scale(1.1) rotate(2deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.galactiques .card .card-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid white;
+}
+
+/* BOUTON CTA */
 .cta {
   text-align: center;
-  margin-top: 50px;
 }
 
 .cta a {
@@ -194,14 +201,12 @@ footer {
   }
 }
 
-@keyframes fadeInSlideDown {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-30px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -216,7 +221,7 @@ footer {
   }
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE POUR MOBILE */
 @media (max-width: 768px) {
   header h1 {
     font-size: 3rem;
@@ -236,9 +241,16 @@ footer {
   h2 {
     font-size: 2rem;
   }
+  .palmares .cards {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
   .card {
-    padding: 20px;
+    padding: 15px;
     font-size: 1rem;
+  }
+  .galactiques .card .card-img {
+    width: 120px;
+    height: 120px;
   }
   .cta a {
     padding: 15px 30px;
