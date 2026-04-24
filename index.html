@@ -1,153 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Real Madrid - Galactiques</title>
-  <link rel="stylesheet" href="css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL MADRID C.F. | REYES DE EUROPA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
-  <header>
-    <h1>REAL MADRID</h1>
-    <p>Le plus grand club de l’histoire du football</p>
-    <button class="btn-scroll" onclick="scrollToSection('presentation')">Voir la suite</button>
-  </header>
+    <div class="cursor"></div>
 
-  <section id="presentation" class="presentation">
-    <h2>⚽ Présentation</h2>
-    <p>
-      Fondé en 1902, le Real Madrid est un club mythique.<br/>
-      Il incarne l’excellence, la victoire et la légende.<br/>
-    </p>
-  </section>
+    <!-- NAVBAR CORRIGÉE -->
+    <nav class="glass-nav">
+        <div class="nav-content">
+            <div class="brand">
+                <span class="mcf">REAL MADRID <small>C.F.</small></span>
+                <span class="since">1902</span>
+            </div>
+            <div class="nav-links">
+                <a href="#stats">PALMARÈS</a>
+                <a href="#players">LÉGENDES</a>
+                <a href="https://shop.realmadrid.com" target="_blank" class="store-link">STORE</a>
+            </div>
+        </div>
+    </nav>
 
-  <section class="palmares">
-    <h2>🏆 Palmarès Légendaire</h2>
-    <div class="cards">
-      <div class="card" data-palmares="ligues">
-        <img src="images/champions-league.png" alt="Ligues des Champions" class="card-img" />
-      </div>
-      <div class="card" data-palmares="championnats">
-        <img src="images/laliga.png" alt="Championnat d'Espagne" class="card-img" />
-      </div>
-      <div class="card" data-palmares="coupes">
-        <img src="images/copa-del-rey.png" alt="Coupe du Roi" class="card-img" />
-      </div>
-      <div class="card" data-palmares="mondial">
-        <img src="images/club-world-cup.png" alt="Coupe du Monde des Clubs" class="card-img" />
-      </div>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-bg-container">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2000" class="hero-img" alt="Bernabeu">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h2 class="hero-tagline">MÁS QUE UN CLUB, UNA LEYENDA</h2>
+            <h1 class="main-title">EL MEJOR<br>CLUB DEL MUNDO</h1>
+            <div class="scroll-down">
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- BENTO STATS - INFOS VÉRIDIQUES 2024 -->
+    <section id="stats" class="bento-section">
+        <h2 class="section-title">LA VITRINE DE GLOIRE</h2>
+        <div class="bento-grid">
+            <div class="bento-item main-stat clickable" data-type="ucl">
+                <span class="counter" data-target="15">0</span>
+                <p>UCL CHAMPIONS</p>
+                <small>Record Historique (2024) ➔</small>
+            </div>
+            <div class="bento-item clickable" data-type="liga">
+                <span class="counter" data-target="36">0</span>
+                <p>TITRES LIGA</p>
+                <small>Dernier : 2023-24</small>
+            </div>
+            <div class="bento-item gold-bg clickable" data-type="fifa">
+                <span class="counter" data-target="100">0</span>
+                <p>TROPHÉES TOTAUX</p>
+                <small>Le plus titré au monde</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALACTIQUES -->
+    <section id="players" class="players-section">
+        <h2 class="section-title">LÉGENDES ÉTERNELLES</h2>
+        <div class="player-container">
+            <div class="player-card clickable" data-type="ronaldo">
+                <div class="player-img-box">
+                    <img src="images/ronaldo.jpg" alt="CR7">
+                </div>
+                <div class="player-name"><span>450 BUTS</span><h3>RONALDO ET CHOUCHA</h3></div>
+            </div>
+            <div class="player-card clickable" data-type="zidane">
+                <div class="player-img-box">
+                    <img src="images/zidane.png" alt="Zizou">
+                </div>
+                <div class="player-name"><span>COACH</span><h3>ZIDANE</h3></div>
+            </div>
+            <div class="player-card clickable" data-type="benzema">
+                <div class="player-img-box">
+                    <img src="images/benzema.jpg" alt="KB9">
+                </div>
+                <div class="player-name"><span>354 BUTS</span><h3>BENZEMA</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PANEL DÉTAILS -->
+    <div id="side-panel" class="side-panel">
+        <div class="panel-header">
+            <button class="close-btn">FERMER</button>
+        </div>
+        <div id="panel-content"></div>
     </div>
-    <div id="palmares-info" class="info-box"></div>
-  </section>
+    <div id="overlay-bg" class="overlay-bg"></div>
 
-  <section class="galactiques">
-    <h2>🌟 Galactiques</h2>
-    <div class="cards">
-      <div class="card" data-player="ronaldo">
-        <img src="images/ronaldo.jpg" alt="Cristiano Ronaldo" class="card-img" />
-        Cristiano Ronaldo
-      </div>
-      <div class="card" data-player="zidane">
-        <img src="images/zidane.png" alt="Zinédine Zidane" class="card-img" />
-        Zinédine Zidane
-      </div>
-      <div class="card" data-player="benzema">
-        <img src="images/benzema.jpg" alt="Karim Benzema" class="card-img" />
-        Karim Benzema
-      </div>
-      <div class="card" data-player="raul">
-        <img src="images/raul.jpg" alt="Raúl" class="card-img" />
-        Raúl
-      </div>
-    </div>
-    <div id="player-info" class="info-box"></div>
-  </section>
+    <footer class="final-footer">
+        <p>ANAS LE BOGOSS | REAL MADRID CLUB DE FÚTBOL © 2024</p>
+    </footer>
 
-  <section class="cta">
-    <a href="https://www.realmadrid.com" target="_blank">🔥 Site Officiel</a>
-  </section>
-
-  <footer>
-    <p>© Real Madrid CF - Historia y Hijo de puta - Anas</p>
-  </footer>
-
-  <script>
-    function scrollToSection(id) {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    const playersData = {
-      ronaldo: {
-        name: "Cristiano Ronaldo",
-        desc: "Attaquant portugais, quintuple Ballon d'Or, connu pour sa puissance et sa technique exceptionnelle. (a deux doigts de devenir gay pour lui)"
-      },
-      zidane: {
-        name: "Zinédine Zidane",
-        desc: "Milieu français légendaire, champion du monde 1998, reconnu pour sa vision du jeu et ses gestes techniques."
-      },
-      benzema: {
-        name: "Karim Benzema",
-        desc: "Avant-centre français, pilier de l’attaque du Real Madrid, réputé pour sa technique et son sens du but."
-      },
-      raul: {
-        name: "Raúl",
-        desc: "Icône du club, l’un des meilleurs buteurs historiques du Real Madrid, symbole de détermination et de talent."
-      }
-    };
-
-    const palmaresData = {
-      ligues: {
-        title: "15 Ligues des Champions",
-        desc: "Le record historique de victoires en Ligue des Champions, démontrant la domination européenne du club."
-      },
-      championnats: {
-        title: "36 Championnats d’Espagne",
-        desc: "Le plus grand nombre de titres en Liga, symbole de constance et de supériorité nationale."
-      },
-      coupes: {
-        title: "20 Coupes du Roi",
-        desc: "Succès multiples en Coupe nationale, avec des performances mémorables dans cette compétition."
-      },
-      mondial: {
-        title: "5 Coupes du Monde des Clubs",
-        desc: "Triomphes mondiaux qui renforcent la légende et la réputation internationale du club."
-      }
-    };
-
-    const playerCards = document.querySelectorAll('.card[data-player]');
-    const playerInfoBox = document.getElementById('player-info');
-
-    playerCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const key = card.getAttribute('data-player');
-        const data = playersData[key];
-        if (data) {
-          playerInfoBox.innerHTML = `<h3>${data.name}</h3><p>${data.desc}</p>`;
-          playerInfoBox.classList.add('active');
-          playerInfoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-
-    const palmaresCards = document.querySelectorAll('.card[data-palmares]');
-    const palmaresInfoBox = document.getElementById('palmares-info');
-
-    palmaresCards.forEach(card => {
-      card.addEventListener('click', () => {
-        const key = card.getAttribute('data-palmares');
-        const data = palmaresData[key];
-        if (data) {
-          palmaresInfoBox.innerHTML = `<h3>${data.title}</h3><p>${data.desc}</p>`;
-          palmaresInfoBox.classList.add('active');
-          palmaresInfoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
-  </script>
-
+    <script src="js/script.js"></script>
 </body>
 </html>
